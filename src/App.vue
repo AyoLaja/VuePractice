@@ -1,18 +1,19 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <users></users>
+    <card></card>
   </div>
 </template>
 
 <script>
 import Test from './components/test'
 import Users from './components/users'
+import Card from './components/card'
 
 export default {
   name: 'App',
   components: {
-    Test, Users
+    Test, Users, Card
   }
 }
 </script>
