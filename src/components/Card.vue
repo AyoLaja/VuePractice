@@ -20,6 +20,12 @@
                 <p>{{item.text | undercase()}} weighs {{item.weight}}.</p>
             </li>
         </ul>
+        <br/>
+        <form v-on:submit="addItem"></form>
+        <ul>
+            <li>Total Family Members: {{totalFam}}</li>
+            <li>Total something else: {{totalMen}}</li>
+        </ul>
     </div>
 </template>
 
@@ -28,7 +34,10 @@
         name: 'card',
         data() {
             return {
-                title: "ABOUT ME",
+                title: "MY FAMILY",
+                input: "",
+                totalFam: 0,
+                totalMen: 0,
                 content: `<strong>Ayomide Onalaja </strong>is a front-end developer with a bachelor’s 
                     degree in Information Science and Technology and a minor in Management 
                     Information Systems from Temple University. He is skilled in HTML, CSS, 
@@ -39,19 +48,23 @@
                 items: [
                     {
                         text: "omowunmi",
-                        weight: "400 lbs"
+                        weight: "400 lbs",
+                        quantity: 5
                     },
                     {
                         text: "Rosey",
-                        weight: "500 lbs"
+                        weight: "500 lbs",
+                        quantity: 8
                     },
                     {
                         text: "demo",
-                        weight: "350 lbs"
+                        weight: "350 lbs",
+                        quantity: 2
                     },
                     {
                         text: "Lalass",
-                        weight: "180 lbs"
+                        weight: "180 lbs",
+                        quantity: 15
                     }
                 ]
             }
@@ -69,6 +82,19 @@
             },
             removeSomeone(someone) {
                 this.items.splice(someone, 1);
+            }
+        },
+        //Computed properties overwrites data properties
+        computed: {
+            totalFam() {
+                let sum, item;
+                sum = 0;
+                items = this.items
+
+                for(let i in items) {
+                    sum += items[i].quantity;
+                }
+                return sum;
             }
         },
         filters: {
