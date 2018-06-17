@@ -86,7 +86,7 @@
         },
         //Computed properties overwrites data properties
         computed: {
-            totalFam() {
+            totalFam: function() {
                 let sum, item;
                 sum = 0;
                 items = this.items
