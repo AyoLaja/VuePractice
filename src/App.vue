@@ -1,19 +1,21 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <card></card>
+    <udemy></udemy>
   </div>
 </template>
 
 <script>
-import Test from './components/test'
-import Users from './components/users'
-import Card from './components/card'
+import Test from './components/Test'
+import Users from './components/Users'
+import Card from './components/Card'
+import Udemy from './components/Udemy'
+
 
 export default {
   name: 'App',
   components: {
-    Test, Users, Card
+    Test, Users, Card, Udemy
   }
 }
 </script>
